@@ -5,11 +5,11 @@ Home: https://bitbucket.org/gutenkunstlab/dadi
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dadi-feedstock/blob/master/LICENSE.txt)
 
 Summary: Fit population genetic models using diffusion approximations to the allele frequency spectrum
 
-
+Documentation: https://dadi.readthedocs.io/
 
 Current build status
 ====================
