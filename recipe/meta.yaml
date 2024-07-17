@@ -10,7 +10,7 @@ source:
   sha256: e93eba38612856b72cbfeaa320148a99ad50d8e7f03bee9bddd181880735144f
 
 build:
-  number: 0
+  number: 1
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
@@ -32,6 +32,7 @@ requirements:
     - scipy
     - matplotlib-base
     - nlopt
+    - demes
 
 test:
   imports:
