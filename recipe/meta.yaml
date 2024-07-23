@@ -29,6 +29,7 @@ requirements:
     - nlopt
   run:
     - python
+    - "numpy>=1.23, <2"
     - scipy
     - matplotlib-base
     - nlopt
