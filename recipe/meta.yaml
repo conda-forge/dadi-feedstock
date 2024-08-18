@@ -1,5 +1,5 @@
 {% set name = "dadi" %}
-{% set version = "2.3.6" %}
+{% set version = "2.3.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e93eba38612856b72cbfeaa320148a99ad50d8e7f03bee9bddd181880735144f
+  sha256: b3ed7016d44ec7952041b0399c73ecd6c251bfdf8bd8fabebe30cb65d814384a
 
 build:
-  number: 3
+  number: 0
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
