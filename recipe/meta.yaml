@@ -1,5 +1,5 @@
 {% set name = "dadi" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e7edc9767b6cfd268e7939513e8f8f04c0e2f01e5505ff582e7ce6c8a98c255c
+  sha256: 6f14f4a3a85268facc620a7fd779c3aeacb361189dc8c29b70924bdbcc0ad9fe
 
 build:
   number: 1
@@ -29,7 +29,7 @@ requirements:
     - nlopt
   run:
     - python
-    - "numpy >=1.23,<2"
+    - "numpy"
     - scipy
     - matplotlib-base
     - nlopt
