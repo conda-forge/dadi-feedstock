@@ -11,7 +11,11 @@ source:
 
 build:
   number: 0
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  script:
+    # The sdist ships Cython-generated .c files built against the newest numpy;
+    # delete them so they are regenerated against the numpy used for this build.
+    - {{ PYTHON }} -c "import pathlib; [p.with_suffix('.c').unlink(missing_ok=True) for p in pathlib.Path('dadi').rglob('*.pyx')]"
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   build:
