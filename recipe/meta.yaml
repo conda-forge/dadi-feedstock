@@ -1,5 +1,5 @@
 {% set name = "dadi" %}
-{% set version = "2.4.3" %}
+{% set version = "2.4.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,15 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7ae4b6867b4a1f29924aba4fd86d138dc24913c5b40b159142c9b8ee0423c56a
+  sha256: a402c21df6e7a1883be2bb566b9bbcfca334286582a4fd430f716ab3393861fe
 
 build:
-  number: 3
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  number: 0
+  script:
+    # The sdist ships Cython-generated .c files built against the newest numpy;
+    # delete them so they are regenerated against the numpy used for this build.
+    - {{ PYTHON }} -c "import pathlib; [p.with_suffix('.c').unlink(missing_ok=True) for p in pathlib.Path('dadi').rglob('*.pyx')]"
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   build:
@@ -42,9 +46,10 @@ test:
     - dadi.DFE
     - dadi.Triallele
     - dadi.TwoLocus
+    - dadi.Polyploidy
 
 about:
-  home: https://bitbucket.org/gutenkunstlab/dadi
+  home: https://github.com/RyanGutenkunst/dadi
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
